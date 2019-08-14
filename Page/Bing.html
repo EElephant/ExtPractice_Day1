@@ -1,0 +1,92 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>微软 Bing 搜索</title>
+    <link href="../Image/title_logo.ico" rel="icon" type="image/x-ico">
+    <meta charset="UTF-8" />
+    <!--ExtJs框架开始-->
+    <script type="text/javascript" src="../ext-3.3.0/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="../ext-3.3.0/ext-all.js"></script>
+    <link rel="stylesheet" type="text/css" href="../ext-3.3.0/resources/css/ext-all.css" />
+    <!--ExtJs框架结束-->
+    <script type="text/javascript">
+        Ext.onReady(function () {
+
+            var searchBox = new Ext.TabPanel({
+                renderTo: 'SearchBox',
+                id: 'searchBox',
+                height: 60,
+                width: 600,
+            });
+
+            searchBox.add({
+                xtype: 'textfield',
+                title: '国内版',
+            });
+
+            searchBox.add({
+                xtype: 'textfield',
+                title: '国际版',
+            });
+
+            searchBox.activate(0);
+
+            var BingPage = new Ext.Container({
+                layout: 'column',
+                renderTo: 'Main',
+                items: [
+                    new Ext.BoxComponent({
+                        autoEl: {
+                            tag: 'img',
+                            src: '../Image/bing.png'
+                        },
+                        renderTo: 'Logo',
+                    }),
+                    searchBox,
+                    new Ext.Button({
+                        id:'searchBtn',
+                        width: 30,
+                        height: 32,
+                        icon: '../Image/search.png',
+                        scale: 'large',
+                        renderTo: 'Serach',
+                    })
+                ]
+            });
+        })
+    </script>
+</head>
+<style>
+    #searchBox ul {
+        background: transparent;
+        color: black;
+        border: none;
+    }
+
+    #searchBox div {
+        background: transparent;
+        color: black;
+        border: none;
+    }
+
+    #searchBox li {
+        background: transparent;
+        color: black;
+        border: none;
+    }
+
+    #searchBtn{
+        margin-top: 26px;
+    }
+</style>
+
+<body style="background-image: url(../Image/bk.jpg)">
+    <div id="Main" style="padding-left: 250px; padding-top: 200px"></div>
+    <div id="Logo"></div>
+    <div id="SearchBox"></div>
+    <div id="Serach"></div>
+</body>
+
+</html>
